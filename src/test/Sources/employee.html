@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Management System</title>
+</head>
+<body>
+
+<h2>Employee Management</h2>
+
+<!-- CREATE EMPLOYEE -->
+<input id="empName" placeholder="Employee Name"/>
+<input id="empRole" placeholder="Employee Role"/>
+<button id="createBtn">Create Employee</button>
+
+<hr/>
+
+<!-- SEARCH -->
+<input id="searchInput" placeholder="Search Employee"/>
+<button id="searchBtn">Search</button>
+
+<hr/>
+
+<!-- EMPLOYEE LIST -->
+<table border="1" id="empTable">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Role</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody id="empBody">
+        <!-- rows added dynamically -->
+    </tbody>
+</table>
+
+<script>
+    const empBody = document.getElementById("empBody");
+
+    document.getElementById("createBtn").onclick = function () {
+        let name = document.getElementById("empName").value;
+        let role = document.getElementById("empRole").value;
+
+        let row = empBody.insertRow();
+        row.innerHTML =
+            "<td>" + name + "</td>" +
+            "<td>" + role + "</td>" +
+            "<td><button class='deleteBtn'>Delete</button></td>";
+
+        addDeleteHandlers();
+    };
+
+    function addDeleteHandlers() {
+        let buttons = document.getElementsByClassName("deleteBtn");
+        for (let btn of buttons) {
+            btn.onclick = function () {
+                this.parentElement.parentElement.remove();
+            };
+        }
+    }
+</script>
+
+</body>
+</html>
