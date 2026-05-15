@@ -14,6 +14,9 @@ public class BaseTest {
 
     protected WebDriver driver;
     protected WebDriverWait wait;
+    public WebDriver getDriver() {
+    return driver;
+}
     @BeforeMethod
 
     public void setUp() {
