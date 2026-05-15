@@ -31,6 +31,7 @@ System.out.println("**********DeleteEmployee running");
     //employeePage.createEmployee("John", "Developer");
     employeePage.searchEmployee("John");
     employeePage.deleteEmployee();
+    // to test the new changes are pushed 
 
     }
 }
